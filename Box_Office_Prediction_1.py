@@ -157,7 +157,7 @@ data.drop(['production_countries'],axis=1, inplace = True)
 test.drop(['production_countries'],axis=1, inplace = True)
 
 # 處理overview欄位-------------------------------------------
-# 有評價的為1，將nulls設為為0
+# 有評價的為1，將null設為為0
 data['overview']=data['overview'].apply(lambda x: 0 if pd.isnull(x) else 1)
 test['overview']=test['overview'].apply(lambda x: 0 if pd.isnull(x) else 1)
 
@@ -389,14 +389,15 @@ from sklearn.linear_model import LinearRegression
 clf = LinearRegression()
 scores = cross_val_score(clf, X, y, scoring="neg_mean_squared_error", cv=10)
 rmse_scores = np.sqrt(-scores)
-print(rmse_scores.mean()) #RMSE離均差平方合太大
+print(rmse_scores.mean()) #2.4213687728137847
+#RMSE均方根誤差(離均差平方合的平均開根號)太大
 
 # Model 2 - Random forest regression 隨機森林回歸
 from sklearn.ensemble import RandomForestRegressor
 regr = RandomForestRegressor(max_depth=10, min_samples_split=5, random_state=0,n_estimators=500)
 scores = cross_val_score(regr, X, y, scoring="neg_mean_squared_error", cv=10)
 rmse_scores = np.sqrt(-scores)
-print(rmse_scores.mean())
+print(rmse_scores.mean()) #2.2127539691384657
 
 # 使用model2的regr
 cols = [col for col in test.columns if col not in ['id']]
@@ -404,6 +405,10 @@ X_test= test[cols].values
 
 regr.fit(X,y)
 y_pred = regr.predict(X_test)
+
+
+
+
 
 
 
