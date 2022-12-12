@@ -407,6 +407,19 @@ regr.fit(X,y)
 y_pred = regr.predict(X_test)
 
 
+y_pred=np.expm1(y_pred)
+pd.DataFrame({'id': test.id, 'revenue': y_pred}).to_csv('submission_RF.csv', index=False)
+
+#Export model
+import joblib
+joblib.dump(regr,'Box_Office-LR-20221212.pkl',compress=3)
+
+
+
+result = regr.predict([[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]])
+print(f'Result:{result}')
+
+
 
 
 

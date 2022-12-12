@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!-- # ['budget','original_language','popularity','runtime','has_homepage','collection','num_genres','num_prod_companies','num_prod_countries','cast_count','crew_count','release_day','Keywords_count','isTaglineNA','spoken_count'] -->
+        <h1>電影基本資料輸入</h1>
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <label for="budget">電影總預算</label>
+            <input type="text" id="budget" name="budget" value="{{budget}}"><br><br>
+
+            <label for="original_language">原始語言</label>
+            <input type="text" id="original_language" name="original_language" value="{{original_language}}"><br><br>
+
+            <label for="popularity">流行系數</label>
+            <input type="text" id="popularity" name="popularity" value="{{popularity}}"><br><br>
+
+            <label for="runtime">上映持續天數</label>
+            <input type="text" id="runtime" name="runtime" value="{{runtime}}"><br><br>
+
+            <label for="has_homepage">使否有電影影的網站或首頁</label>
+            <input type="text" id="has_homepage" name="has_homepage" value="{{has_homepage}}"><br><br>
+
+            <label for="collection">使否屬於電影系列</label>
+            <input type="text" id="collection" name="collection" value="{{collection}}"><br><br>
+
+            <label for="num_genres">種類</label>
+            <input type="text" id="num_genres" name="num_genres" value="{{num_genres}}"><br><br>
+
+            <label for="num_prod_companies">電影製造公司數量</label>
+            <input type="text" id="num_prod_companies" name="num_prod_companies" value="{{num_prod_companies}}"><br><br>
+
+            <label for="num_prod_countries">拍攝製造地點數量</label>
+            <input type="text" id="num_prod_countries" name="num_prod_countries" value="{{num_prod_countries}}"><br><br>
+
+            <label for="cast_count">演員數量</label>
+            <input type="text" id="cast_count" name="cast_count" value="{{cast_count}}"><br><br>
+
+            <label for="crew_count">劇組數量</label>
+            <input type="text" id="crew_count" name="crew_count" value="{{crew_count}}"><br><br>
+
+            <label for="release_day">上映日期(星期幾)</label>
+            <input type="text" id="release_day" name="release_day" value="{{release_day}}"><br><br>
+
+            <label for="Keywords_count">電影關鍵字數量</label>
+            <input type="text" id="Keywords_count" name="Keywords_count" value="{{Keywords_count}}"><br><br>
+
+            <label for="isTaglineNA">有無標籤</label>
+            <input type="text" id="isTaglineNA" name="isTaglineNA" value="{{isTaglineNA}}"><br><br>
+
+            <label for="spoken_count">電影對話語言數量</label>
+            <input type="text" id="spoken_count" name="spoken_count" value="{{spoken_count}}"><br><br>
+
+            <input type="submit" value="submit">
+        </form>
+        
+        <br>
+        <div>
+            <p>評估結果 : {{prediction}}</p> 
+        </div>
+    </body>
+</html>
