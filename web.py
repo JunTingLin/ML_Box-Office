@@ -14,9 +14,9 @@ def submit():
     if request.method == 'POST':
         form_data = request.form
         result = model_pretrained.predict([[
-        int(form_data['budget']),
+        np.log1p(float(form_data['budget'])),
         int(form_data['original_language']),
-        int(form_data['popularity']),
+        float(form_data['popularity']),
         int(form_data['runtime']),
         int(form_data['has_homepage']),
         int(form_data['collection']),
@@ -31,6 +31,7 @@ def submit():
         int(form_data['spoken_count'])
         ]])
         
+        result = np.expm1(result)
         print(f'Result:{result}')
         prediction = result
 
