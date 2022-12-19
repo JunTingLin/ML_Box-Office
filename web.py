@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def formPage():
-    return render_template('form.html')
+    return render_template('test.html')
 
 @app.route("/submit", methods=['POST'])
 def submit():
@@ -35,7 +35,7 @@ def submit():
         print(f'Result:{result}')
         prediction = result
 
-        return render_template('form.html', 
+        return render_template('test.html', 
         budget = form_data['budget'],
         original_language = form_data['original_language'],
         popularity = form_data['popularity'],
