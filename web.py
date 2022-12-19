@@ -2,17 +2,28 @@ import joblib
 model_pretrained = joblib.load('Box_Office-LR-20221212.pkl')
 import numpy as np
 
+#日誌管理套件
+from simplelog import logger
+
 from flask import Flask, request, render_template
 app = Flask(__name__)
 
 @app.route("/")
 def formPage():
-    return render_template('test.html')
+    return render_template('form.html')
 
 @app.route("/submit", methods=['POST'])
 def submit():
     if request.method == 'POST':
+        print("收到POST請求...")
+
         form_data = request.form
+        print(form_data)
+        # 此為測試試印
+        print("form_data['budget']"+form_data['budget'])
+        print("form_data['original_language']"+form_data['original_language'])
+        print("form_data['popularity']:"+form_data['popularity'])
+
         result = model_pretrained.predict([[
         np.log1p(float(form_data['budget'])),
         int(form_data['original_language']),
@@ -35,7 +46,7 @@ def submit():
         print(f'Result:{result}')
         prediction = result
 
-        return render_template('test.html', 
+        return render_template('form.html', 
         budget = form_data['budget'],
         original_language = form_data['original_language'],
         popularity = form_data['popularity'],
