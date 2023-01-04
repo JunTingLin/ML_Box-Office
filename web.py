@@ -2,9 +2,6 @@ import joblib
 model_pretrained = joblib.load('Box_Office-LR-20221212.pkl')
 import numpy as np
 
-#日誌管理套件
-from simplelog import logger
-
 from flask import Flask, request, render_template
 app = Flask(__name__)
 
