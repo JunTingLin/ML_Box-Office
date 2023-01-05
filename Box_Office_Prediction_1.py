@@ -49,6 +49,7 @@ test=test.drop(['belongs_to_collection'],axis =1)
 from wordcloud import WordCloud, STOPWORDS
 from collections import OrderedDict
 genres = {}
+
 for i in data['genres']:
     if(not(pd.isnull(i))):
         if (eval(i)[0]['name']) not in genres:
