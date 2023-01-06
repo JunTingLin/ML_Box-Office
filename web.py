@@ -62,5 +62,17 @@ def submit():
         spoken_count = form_data['spoken_count'],
         prediction = prediction)
 
+
+@app.errorhandler(404)  # 傳入錯誤碼作為參數狀態
+def error_date(error):  # 接受錯誤作為參數
+    return render_template("404.html"), 404  
+    #返回對應的HTTP狀態碼，和返回404錯誤的html檔
+
+@app.errorhandler(405)  
+def error_date(error): 
+    return render_template("405.html"), 405
+
+
+
 if __name__ == "__main__":
     app.run()
