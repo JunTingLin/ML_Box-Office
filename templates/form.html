@@ -32,14 +32,14 @@
                                 <div class="field">
                                     <label for="budget">電影總預算</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="budget" name="budget" value="{{budget}}"><br><br>
+                                        <input class ="tabg" type="text" id="budget" name="budget" value="{{budget}}"><br><br>
                                         <i class="money icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="original_language">原始語言</label>
                                     <div class="ui left icon input">
-                                        <select name="original_language" id="original_language" required>
+                                        <select class ="tabg" name="original_language" id="original_language" required>
                                             <option value="1" {{language_en}}>英文</option>
                                             <option value="2" {{language_zh}}>中文</option>
                                             <option value="0" {{language_other}}>其他</option>
@@ -171,7 +171,7 @@
             </div>
 
             <div class="ui segment" style="text-align: center">
-                <h3>評估結果 : {{prediction}}</h3>
+                <h3>評估結果 : {{prediction}}元</h3>
             </div>
 
             <div style="text-align: center">
