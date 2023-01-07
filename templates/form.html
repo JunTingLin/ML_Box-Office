@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Login</title>
+    <title>票房預測系統-第六組</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/NCULogo.svg/1200px-NCULogo.svg.png"
+        type="image/x-icon" />
     <!--semantic-ui-->
     <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static',filename ='mycss.css')}}">
+    <!-- <link rel="stylesheet" href="../static/mycss.css"> -->
     <title>票房預測系統</title>
 </head>
 
@@ -19,6 +22,8 @@
         <div class="ui segment">
 
             <div style="text-align: center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/NCULogo.svg/1200px-NCULogo.svg.png"
+                    height="100px">
                 <h1 class="header">票房預測系統</h1>
             </div>
 
@@ -32,14 +37,15 @@
                                 <div class="field">
                                     <label for="budget">電影總預算</label>
                                     <div class="ui left icon input">
-                                        <input class ="tabg" type="text" id="budget" name="budget" value="{{budget}}"><br><br>
+                                        <input class="tabg" type="text" id="budget" name="budget"
+                                            value="{{budget}}"><br><br>
                                         <i class="money icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="original_language">原始語言</label>
                                     <div class="ui left icon input">
-                                        <select class ="tabg" name="original_language" id="original_language" required>
+                                        <select class="tabg" name="original_language" id="original_language" required>
                                             <option value="1" {{language_en}}>英文</option>
                                             <option value="2" {{language_zh}}>中文</option>
                                             <option value="0" {{language_other}}>其他</option>
@@ -53,32 +59,36 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="popularity" name="popularity"
                                             value="{{popularity}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="comment alternate outline icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="runtime">上映持續天數</label>
                                     <div class="ui left icon input">
                                         <input type="text" id="runtime" name="runtime" value="{{runtime}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="calendar alternate outline icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="has_homepage">是否有電影的網站或首頁</label>
                                     <div class="ui left icon input">
-                                        <input type="radio"  id="has_homepage" name="has_homepage" value="1" {{has_homepage_yes}}required><label for="has_homepage_yes">有</label>
-                                        <input type="radio" id="has_homepage" name="has_homepage" value="0" {{has_homepage_no}}><label for="has_homepage_no">無</label>
-                                        <input type="radio" id="has_homepage" name="has_homepage" value="0" {{has_homepage_unknown}}><label for="has_homepage_unknown">不知道</label>
-
-
+                                        <input type="radio" id="has_homepage" name="has_homepage" value="1"
+                                            {{has_homepage_yes}}required><label for="has_homepage_yes">有</label>
+                                        <input type="radio" id="has_homepage" name="has_homepage" value="0"
+                                            {{has_homepage_no}}><label for="has_homepage_no">無</label>
+                                        <input type="radio" id="has_homepage" name="has_homepage" value="0"
+                                            {{has_homepage_unknown}}><label for="has_homepage_unknown">不知道</label>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="collection">是否屬於電影系列</label>
                                     <div class="ui left icon input">
-                                        <input type="radio" id="collection" name="collection" value="1" {{collection_yes}}required><label for="collection_yes">是</label>
-                                        <input type="radio" id="collection" name="collection" value="0" {{collection_no}}><label for="collection_no">否</label>
-                                        <input type="radio" id="collection" name="collection" value="0" {{collection_unknown}}><label for="collection_unknown">不知道</label>
+                                        <input type="radio" id="collection" name="collection" value="1"
+                                            {{collection_yes}}required><label for="collection_yes">是</label>
+                                        <input type="radio" id="collection" name="collection" value="0"
+                                            {{collection_no}}><label for="collection_no">否</label>
+                                        <input type="radio" id="collection" name="collection" value="0"
+                                            {{collection_unknown}}><label for="collection_unknown">不知道</label>
 
                                     </div>
                                 </div>
@@ -87,7 +97,7 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="num_genres" name="num_genres"
                                             value="{{num_genres}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="folder open icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -95,7 +105,7 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="num_prod_companies" name="num_prod_companies"
                                             value="{{num_prod_companies}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="building icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -103,7 +113,7 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="num_prod_countries" name="num_prod_countries"
                                             value="{{num_prod_countries}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="camera icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -111,7 +121,7 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="cast_count" name="cast_count"
                                             value="{{cast_count}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="male icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -119,7 +129,7 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="crew_count" name="crew_count"
                                             value="{{crew_count}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="street view icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
@@ -130,7 +140,9 @@
                                             <option value="1" {{release_day_mon}}>星期一</option>
                                             <option value="2" {{release_day_sun_tue}}>星期二</option>
                                             <option value="3" {{release_day_wed}}>星期三</option>
-                                            <option value="4" {{release_day_thr}}>星期四</option><option value="5" {{release_day_fri}}>星期五</option><option value="6" {{release_day_sat}}>星期六</option>
+                                            <option value="4" {{release_day_thr}}>星期四</option>
+                                            <option value="5" {{release_day_fri}}>星期五</option>
+                                            <option value="6" {{release_day_sat}}>星期六</option>
 
                                         </select>
 
@@ -141,15 +153,18 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="Keywords_count" name="Keywords_count"
                                             value="{{Keywords_count}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="file word icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="isTaglineNA">有無標籤</label>
                                     <div class="ui left icon input">
-                                        <input type="radio"  id="isTaglineNA" name="isTaglineNA" value="1" {{isTaglineNA_yes}}required><label for="isTaglineNA_yes">有</label>
-                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="0" {{isTaglineNA_no}}><label for="isTaglineNA_no">無</label>
-                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="0" {{isTaglineNA_unknown}}><label for="isTaglineNA_unknown">不知道</label>
+                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="1"
+                                            {{isTaglineNA_yes}}required><label for="isTaglineNA_yes">有</label>
+                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="0"
+                                            {{isTaglineNA_no}}><label for="isTaglineNA_no">無</label>
+                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="0"
+                                            {{isTaglineNA_unknown}}><label for="isTaglineNA_unknown">不知道</label>
 
                                     </div>
                                 </div>
@@ -158,7 +173,7 @@
                                     <div class="ui left icon input">
                                         <input type="text" id="spoken_count" name="spoken_count"
                                             value="{{spoken_count}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <i class="language icon"></i>
                                     </div>
                                 </div>
 
@@ -171,7 +186,7 @@
             </div>
 
             <div class="ui segment" style="text-align: center">
-                <h3>評估結果 : {{prediction}}元</h3>
+                <h3>評估結果 : {{prediction}}美元</h3>
             </div>
 
             <div style="text-align: center">

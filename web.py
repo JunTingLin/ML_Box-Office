@@ -7,8 +7,6 @@ data = pd.read_csv("train.csv")
 
 from flask import Flask, request, render_template
 app = Flask(__name__)
-app.config['ENV']="development"
-app.config['DEBUG']=True
 
 @app.route("/")
 @app.route("/index")
@@ -160,7 +158,7 @@ def submit():
 
         result = np.expm1(result)
         print(f'Result:{result}')
-        prediction = result
+        prediction = round(result[0],1)
 
         return render_template('form.html',
         # budget = budget,

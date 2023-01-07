@@ -1,8 +1,11 @@
 .image_bg{
   background-size: cover;
   background-image: url('img/cinema.jpg');
-  opacity: 0.7;
+  opacity: 0.95;
 }
 .tabg{
   background-color: beige;
+}
+label{
+  width: 500px;
 }
