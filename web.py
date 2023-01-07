@@ -1,9 +1,10 @@
 import joblib
 model_pretrained = joblib.load('Box_Office-LR-20221212.pkl')
 import numpy as np
-import pandas as pd
+# import pandas as pd
 
-data = pd.read_csv("train.csv")
+# data = pd.read_csv("train.csv")
+# 這邊pd讀進來會太慢~~
 
 from flask import Flask, request, render_template
 app = Flask(__name__)
@@ -51,7 +52,7 @@ def submit():
 
         # runtime (text area)
         if form_data['runtime'] == "" :
-            form_data['runtime']= str(data['runtime'].mean()) # default value
+            form_data['runtime']= str(107.85657104736491) # default value
 
         #homepage (radio)
         has_homepage_yes = ''
