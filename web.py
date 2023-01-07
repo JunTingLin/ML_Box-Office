@@ -4,6 +4,8 @@ import numpy as np
 
 from flask import Flask, request, render_template
 app = Flask(__name__)
+app.config['ENV']="development"
+app.config['DEBUG']=True
 
 @app.route("/")
 @app.route("/index")
@@ -39,12 +41,12 @@ def submit():
         int(form_data['isTaglineNA']),
         int(form_data['spoken_count'])
         ]])
-        
+
         result = np.expm1(result)
         print(f'Result:{result}')
         prediction = result
 
-        return render_template('form.html', 
+        return render_template('form.html',
         budget = form_data['budget'],
         original_language = form_data['original_language'],
         popularity = form_data['popularity'],
@@ -65,11 +67,11 @@ def submit():
 
 @app.errorhandler(404)  # 傳入錯誤碼作為參數狀態
 def error_date(error):  # 接受錯誤作為參數
-    return render_template("404.html"), 404  
+    return render_template("404.html"), 404
     #返回對應的HTTP狀態碼，和返回404錯誤的html檔
 
-@app.errorhandler(405)  
-def error_date(error): 
+@app.errorhandler(405)
+def error_date(error):
     return render_template("405.html"), 405
 
 
