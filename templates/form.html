@@ -7,9 +7,11 @@
     <title>Login</title>
     <!--semantic-ui-->
     <link href="https://cdn.bootcss.com/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename ='mycss.css')}}">
+    <title>票房預測系統</title>
 </head>
 
-<body>
+<body class="image_bg">
 
     <!--主容器-->
     <div class="ui container">
@@ -30,16 +32,20 @@
                                 <div class="field">
                                     <label for="budget">電影總預算</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="budget" name="budget" value="{{budget}}"><br><br>
-                                        <i class="user icon"></i>
+                                        <input class ="tabg" type="text" id="budget" name="budget" value="{{budget}}"><br><br>
+                                        <i class="money icon"></i>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <label for="original_language">原始語言</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="original_language" name="original_language"
-                                            value="{{original_language}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <select class ="tabg" name="original_language" id="original_language" required>
+                                            <option value="1" {{language_en}}>英文</option>
+                                            <option value="2" {{language_zh}}>中文</option>
+                                            <option value="0" {{language_other}}>其他</option>
+
+                                        </select><br><br>
+
                                     </div>
                                 </div>
                                 <div class="field">
@@ -58,23 +64,26 @@
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label for="has_homepage">使否有電影影的網站或首頁</label>
+                                    <label for="has_homepage">是否有電影的網站或首頁</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="has_homepage" name="has_homepage"
-                                            value="{{has_homepage}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <input type="radio"  id="has_homepage" name="has_homepage" value="1" {{has_homepage_yes}}required><label for="has_homepage_yes">有</label>
+                                        <input type="radio" id="has_homepage" name="has_homepage" value="0" {{has_homepage_no}}><label for="has_homepage_no">無</label>
+                                        <input type="radio" id="has_homepage" name="has_homepage" value="0" {{has_homepage_unknown}}><label for="has_homepage_unknown">不知道</label>
+
+
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label for="collection">使否屬於電影系列</label>
+                                    <label for="collection">是否屬於電影系列</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="collection" name="collection"
-                                            value="{{collection}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <input type="radio" id="collection" name="collection" value="1" {{collection_yes}}required><label for="collection_yes">是</label>
+                                        <input type="radio" id="collection" name="collection" value="0" {{collection_no}}><label for="collection_no">否</label>
+                                        <input type="radio" id="collection" name="collection" value="0" {{collection_unknown}}><label for="collection_unknown">不知道</label>
+
                                     </div>
                                 </div>
                                 <div class="field">
-                                    <label for="num_genres">種類</label>
+                                    <label for="num_genres">種類（請輸入所有種類，並用空格隔開）</label>
                                     <div class="ui left icon input">
                                         <input type="text" id="num_genres" name="num_genres"
                                             value="{{num_genres}}"><br><br>
@@ -116,9 +125,15 @@
                                 <div class="field">
                                     <label for="release_day">上映日期(星期幾)</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="release_day" name="release_day"
-                                            value="{{release_day}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <select name="release_day" id="release_day" required>
+                                            <option value="0" {{release_day_sun}}>星期日</option>
+                                            <option value="1" {{release_day_mon}}>星期一</option>
+                                            <option value="2" {{release_day_sun_tue}}>星期二</option>
+                                            <option value="3" {{release_day_wed}}>星期三</option>
+                                            <option value="4" {{release_day_thr}}>星期四</option><option value="5" {{release_day_fri}}>星期五</option><option value="6" {{release_day_sat}}>星期六</option>
+
+                                        </select>
+
                                     </div>
                                 </div>
                                 <div class="field">
@@ -132,9 +147,10 @@
                                 <div class="field">
                                     <label for="isTaglineNA">有無標籤</label>
                                     <div class="ui left icon input">
-                                        <input type="text" id="isTaglineNA" name="isTaglineNA"
-                                            value="{{isTaglineNA}}"><br><br>
-                                        <i class="lock icon"></i>
+                                        <input type="radio"  id="isTaglineNA" name="isTaglineNA" value="1" {{isTaglineNA_yes}}required><label for="isTaglineNA_yes">有</label>
+                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="0" {{isTaglineNA_no}}><label for="isTaglineNA_no">無</label>
+                                        <input type="radio" id="isTaglineNA" name="isTaglineNA" value="0" {{isTaglineNA_unknown}}><label for="isTaglineNA_unknown">不知道</label>
+
                                     </div>
                                 </div>
                                 <div class="field">
@@ -155,7 +171,7 @@
             </div>
 
             <div class="ui segment" style="text-align: center">
-                <h3>評估結果 : {{prediction}}</h3>
+                <h3>評估結果 : {{prediction}}元</h3>
             </div>
 
             <div style="text-align: center">
